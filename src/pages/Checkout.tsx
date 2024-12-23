@@ -15,7 +15,8 @@ import { RootState } from "../redux/store";
 import { NewOrderRequest } from "../types/api-types";
 import { responseToast } from "../utils/response.toast";
 
-const stripePromise = await loadStripe(import.meta.env.VITE_STRIPE_KEY); 
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY); 
 
 const CheckOutFrom = () => {
 	const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -104,3 +105,4 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
