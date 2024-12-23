@@ -15,12 +15,10 @@ import { RootState } from "../redux/store";
 import { NewOrderRequest } from "../types/api-types";
 import { responseToast } from "../utils/response.toast";
 
-
 // const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY); 
-const stripePromise = async () => {
-	const promise = await loadStripe(import.meta.env.VITE_STRIPE_KEY)
-	return promise;
-}
+
+const stripekey = "pk_test_51QJczTLXug6FFSQoHFgJnmYocljnfZyBX08Fv3x3Ya3gVI0old4C9jfD0JjxWXrV681BiEDM3ulPqbFjvexRdG5G0095CGFiYP"
+const stripePromise = loadStripe(stripekey); 
 
 const CheckOutFrom = () => {
 	const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -102,7 +100,7 @@ const Checkout = () => {
 	if (!clientSecret) return <Navigate to={"/shipping"} />;
 
 	return (
-		<Elements options={{ clientSecret }} stripe={stripePromise()}>
+		<Elements options={{ clientSecret }} stripe={stripePromise}>
 			<CheckOutFrom />
 		</Elements>
 	);

@@ -1,3 +1,4 @@
+
 import { BiMaleFemale } from "react-icons/bi";
 import { FaRegBell } from "react-icons/fa";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
@@ -16,6 +17,12 @@ const Dashboard = () => {
 	const { isLoading, data, isError } = useStatesQuery(user?._id as string);
 
 	const stats = data?.stats;
+
+	const order = data?.stats.changeParcent.order;
+	const revenue = data?.stats.changeParcent.revenue;
+	const product = data?.stats.changeParcent.product;
+	const users = data?.stats.changeParcent.user;
+
 
 	const orderArr: number[] = stats?.chart?.order || [];
 	const revenueArr: number[] = stats?.chart?.revenue || [];
@@ -39,26 +46,26 @@ const Dashboard = () => {
 
 						<section className="widget-container">
 							<WidgetItem
-								percent={stats?.changeParcent.revenue || 0}
+								percent={revenue || 0}
 								amount={true}
 								value={stats?.count.revenue || 0}
 								heading="Revenue"
 								color="rgb(0, 115, 255)"
 							/>
 							<WidgetItem
-								percent={stats?.changeParcent.user || 0}
+								percent={users || 1}
 								value={stats?.count.user || 0}
 								color="rgb(0 198 202)"
 								heading="Users"
 							/>
 							<WidgetItem
-								percent={stats?.changeParcent.order || 0}
+								percent={order || 1}
 								value={stats?.count.order || 0}
 								color="rgb(255 196 0)"
 								heading="Transactions"
 							/>
 							<WidgetItem
-								percent={stats?.changeParcent.product || 0}
+								percent={product || 1}
 								value={stats?.count.product || 0}
 								color="rgb(76 0 255)"
 								heading="Products"
@@ -202,3 +209,4 @@ const CategoryItem = ({ color, value, heading }: CategoryItemProps) => (
 );
 
 export default Dashboard;
+
