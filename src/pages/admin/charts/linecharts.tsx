@@ -16,10 +16,10 @@ const Linecharts = () => {
 		user?._id as string
 	);
 
-	const products = data?.charts.product || [];
-	const users = data?.charts.users || [];
-	const revenue = data?.charts.revenue || [];
-	const discount = data?.charts.discount || [];
+	const products = data?.charts.product;
+	const users = data?.charts.users;
+	const revenue = data?.charts.revenue;
+	const discount = data?.charts.discount;
 
 	if (isError) {
 		toast.error((error as CustomError).data.message);

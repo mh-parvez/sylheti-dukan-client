@@ -76,6 +76,8 @@ const TransactionManagement = () => {
 		total,
 	} = data?.order || defaultData;
 
+	console.log(username)
+
 	if (isError) {
 		return <Navigate to={"/404"} />;
 	}

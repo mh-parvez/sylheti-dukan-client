@@ -19,8 +19,8 @@ const Dashboard = () => {
 
 	const stats = data?.stats;
 
-	const { orders, products, revenue, users } = stats?.changeParcent || {};
-	const { order: orderArr, revenue: revenueArr } = stats?.chart || {};
+	const { orders, products, revenue, users } = stats?.changeParcent;
+	const { order: orderArr, revenue: revenueArr } = stats?.chart;
 
 	const { last6Month:months } = getLastMonths();
 
