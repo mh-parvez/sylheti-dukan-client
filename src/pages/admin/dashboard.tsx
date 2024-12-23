@@ -13,90 +13,84 @@ import { getLastMonths } from "../../utils/get.last.months";
 const Dashboard = () => {
 	const { user } = useSelector((state: RootState) => state.userReducer);
 
-	const { isLoading, data, isError } = useStatesQuery(
-		user?._id as string
-	);
+	const { isLoading, data, isError } = useStatesQuery(user?._id as string);
 
 	const stats = data?.stats;
 
-	const { orders, products, revenue, users } = stats?.changeParcent;
-	const { order: orderArr, revenue: revenueArr } = stats?.chart;
+	const orderArr: number[] = stats?.chart?.order || [];
+	const revenueArr: number[] = stats?.chart?.revenue || [];
 
-	const { last6Month:months } = getLastMonths();
+	const { last6Month: months } = getLastMonths();
 
 	if (isError) return <Navigate to={"/"} />;
 
 	return (
-		<div className='admin-container'>
+		<div className="admin-container">
 			<AdminSidebar />
-			<main className='dashboard'>
+			<main className="dashboard">
 				{isLoading ? (
 					<h1>Loading ...</h1>
 				) : (
 					<>
-						<div className='bar'>
+						<div className="bar">
 							<FaRegBell />
-							<img src={user?.photo} alt='User' />
+							<img src={user?.photo} alt="User" />
 						</div>
 
-						<section className='widget-container'>
+						<section className="widget-container">
 							<WidgetItem
-								percent={revenue as number}
+								percent={stats?.changeParcent.revenue || 0}
 								amount={true}
-								value={stats?.count.revenue as number}
-								heading='Revenue'
-								color='rgb(0, 115, 255)'
+								value={stats?.count.revenue || 0}
+								heading="Revenue"
+								color="rgb(0, 115, 255)"
 							/>
 							<WidgetItem
-								percent={users}
-								value={stats?.count.user as number}
-								color='rgb(0 198 202)'
-								heading='Users'
+								percent={stats?.changeParcent.user || 0}
+								value={stats?.count.user || 0}
+								color="rgb(0 198 202)"
+								heading="Users"
 							/>
 							<WidgetItem
-								percent={orders}
-								value={stats?.count.order as number}
-								color='rgb(255 196 0)'
-								heading='Transactions'
+								percent={stats?.changeParcent.order || 0}
+								value={stats?.count.order || 0}
+								color="rgb(255 196 0)"
+								heading="Transactions"
 							/>
-
 							<WidgetItem
-								percent={products}
-								value={stats?.count.product as number}
-								color='rgb(76 0 255)'
-								heading='Products'
+								percent={stats?.changeParcent.product || 0}
+								value={stats?.count.product || 0}
+								color="rgb(76 0 255)"
+								heading="Products"
 							/>
 						</section>
 
-						<section className='graph-container'>
-							<div className='revenue-chart'>
+						<section className="graph-container">
+							<div className="revenue-chart">
 								<h2>Revenue & Transaction</h2>
 								<BarChart
 									labels={months}
 									data_1={orderArr}
 									data_2={revenueArr}
-									title_1='Revenue'
-									title_2='Transaction'
-									bgColor_1='rgb(0, 115, 255)'
-									bgColor_2='rgba(53, 162, 235, 0.8)'
+									title_1="Revenue"
+									title_2="Transaction"
+									bgColor_1="rgb(0, 115, 255)"
+									bgColor_2="rgba(53, 162, 235, 0.8)"
 								/>
 							</div>
 
-							<div className='dashboard-categories'>
+							<div className="dashboard-categories">
 								<h2>Inventory</h2>
-
 								<div>
-									{stats?.categoryCount.map((i) => {
-										const [heading, value] =
-											Object.entries(i)[0];
+									{stats?.categoryCount?.map((i) => {
+										const [heading, value] = Object.entries(i)[0];
 
 										return (
 											<CategoryItem
 												key={heading}
-												value={value}
+												value={value as number}
 												heading={heading}
-												color={`hsl(${value * 4
-													}, ${value}%, 50%)`}
+												color={`hsl(${value * 4}, ${value}%, 50%)`}
 											/>
 										);
 									})}
@@ -104,14 +98,14 @@ const Dashboard = () => {
 							</div>
 						</section>
 
-						<section className='transaction-container'>
-							<div className='gender-chart'>
+						<section className="transaction-container">
+							<div className="gender-chart">
 								<h2>Gender Ratio</h2>
 								<DoughnutChart
 									labels={["Female", "Male"]}
 									data={[
-										stats?.userRatio.female as number,
-										stats?.userRatio.male as number,
+										stats?.userRatio?.female || 0,
+										stats?.userRatio?.male || 0,
 									]}
 									backgroundColor={[
 										"hsl(340, 82%, 56%)",
@@ -123,7 +117,7 @@ const Dashboard = () => {
 									<BiMaleFemale />
 								</p>
 							</div>
-							<Table data={stats?.latestTransections} />
+							<Table data={stats?.latestTransections || []} />
 						</section>
 					</>
 				)}

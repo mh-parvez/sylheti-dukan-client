@@ -16,10 +16,11 @@ const Linecharts = () => {
 		user?._id as string
 	);
 
-	const products = data?.charts.product;
-	const users = data?.charts.users;
-	const revenue = data?.charts.revenue;
-	const discount = data?.charts.discount;
+	// Ensure data is always an array
+	const products: number[] = Array.isArray(data?.charts.product) ? data.charts.product : [];
+	const users: number[] = Array.isArray(data?.charts.users) ? data.charts.users : [];
+	const revenue: number[] = Array.isArray(data?.charts.revenue) ? data.charts.revenue : [];
+	const discount: number[] = Array.isArray(data?.charts.discount) ? data.charts.discount : [];
 
 	if (isError) {
 		toast.error((error as CustomError).data.message);
