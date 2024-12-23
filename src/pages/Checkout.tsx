@@ -16,7 +16,11 @@ import { NewOrderRequest } from "../types/api-types";
 import { responseToast } from "../utils/response.toast";
 
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY); 
+// const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY); 
+const stripePromise = async () => {
+	const promise = await loadStripe(import.meta.env.VITE_STRIPE_KEY)
+	return promise;
+}
 
 const CheckOutFrom = () => {
 	const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -98,7 +102,7 @@ const Checkout = () => {
 	if (!clientSecret) return <Navigate to={"/shipping"} />;
 
 	return (
-		<Elements options={{ clientSecret }} stripe={stripePromise}>
+		<Elements options={{ clientSecret }} stripe={stripePromise()}>
 			<CheckOutFrom />
 		</Elements>
 	);
