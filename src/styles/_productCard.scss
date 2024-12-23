@@ -1,0 +1,99 @@
+.product-card-container {
+    width: 200px;
+    height: 290px;
+    margin-top: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: all .5s;
+
+    @media screen and (width <=480px) {
+        width: 160px;
+    }
+
+    @media screen and (width <=420px) {
+        width: 150px;
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: .3rem;
+        position: relative;
+
+        a {
+            background-color: rgb(180, 182, 182);
+            display: block;
+            text-align: center;
+            height: 1.2rem;
+            width: 1.2rem;
+            color: rgb(243, 246, 248);
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+        }
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        img {
+            object-fit: contain;
+            height: 135px;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: .8rem;
+            text-align: center;
+        }
+    }
+
+    .add-to-card-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        p {
+            font-size: .8rem;
+            text-align: center;
+            margin-bottom: .3rem;
+        }
+
+        .price {
+            font-weight: 600;
+            text-align: center;
+            color: rgba(14, 13, 13, 0.897);
+            font-size: 1rem;
+            margin-bottom: .3rem;
+        }
+
+        button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5rem;
+            font-size: 1rem;
+            padding: .5rem 0;
+            border: none;
+
+            svg {
+                font-size: 1.2rem;
+            }
+
+            &:hover {
+                background-color: rgba(226, 9, 9, 0.671);
+            }
+        }
+    }
+
+}

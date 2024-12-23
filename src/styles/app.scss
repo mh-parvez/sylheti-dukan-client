@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+    // font-weight: 400;
+    color: rgb(63, 63, 63);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+$color1: white;
+$color2: rgb(46, 46, 46);
+$color3: rgb(0, 108, 136);
+
+.red {
+    color: red;
+}
+
+.purple {
+    color: rgb(47, 0, 255);
+}
+
+.green {
+    color: rgb(0, 195, 0);
+}
+
+
+@import "admin/mixin";
+
+@import "navbar";
+@import "home";
+@import "cart";
+@import "slider";
+@import "shipping";
+@import "productCard";
+@import "login";
+@import "search";
+@import "productDetails";
+
+@import "admin/dashboard";
+@import "admin/products";
+@import "admin/chart";
+@import "admin/dashboardapp";
+@import "admin/mediaquery";
+
+.container {
+    max-width: 1167px;
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+
+    h1 {
+        @include heading;
+        margin: 1rem 0;
+        text-align: left;
+    }
+}
+
+.heading {
+    @include heading;
+    margin: 0;
+    text-align: center;
+}
+
+.checkout-container {
+    height: 80vh;
+    width: 100%;
+    margin: auto;
+    @include flex;
+
+    >form {
+        @include flex(column, flex-start, stretch, 2rem);
+        max-width: 400px;
+        box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+        padding: 4rem;
+        border-radius: 6px;
+
+        >button {
+            @include btn(.8rem);
+            background-color: rgb(58, 58, 134);
+            width: 100%;
+            font-size: 1rem;
+            color: white;
+        }
+    }
+}
+
+
+.admin-container {
+    @include grid(1fr 4fr, 0);
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgb(255, 255, 255);
+
+    >aside {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(220, 223, 252, 0.842);
+        backdrop-filter: blur(10px);
+        padding: 0.8rem 1rem;
+        z-index: 10;
+        overflow-y: auto;
+        position: relative;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .home {
+            margin-top: 1rem;
+            padding: 1.3rem 1rem;
+            color: rgba(0, 0, 0, 0.747);
+
+            svg {
+                font-size: 1.7rem;
+            }
+        }
+
+        >div {
+            margin: 1rem 1rem;
+            font-size: 0.9rem;
+
+            >h5 {
+                margin: .8rem 0;
+                text-transform: uppercase;
+                font-weight: 400;
+            }
+
+            >ul {
+                @include flex(column, unset, unset, 0.5rem);
+                list-style: none;
+
+                >li {
+                    border-radius: 5px;
+
+                    a {
+                        color: rgba(0, 0, 0, 0.438);
+                        @include flex(row, unset);
+                        padding: 0.5rem .7rem;
+                        background-color: rgba(212, 215, 247, 0.822);
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        vertical-align: middle;
+
+    }
+
+    th {
+        font-weight: bold;
+        color: #0000009e;
+        font-size: 0.9rem;
+        font-weight: 400;
+        padding: 2rem 1rem;
+    }
+
+    tbody {
+        tr {
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+        }
+
+        td {
+            padding: .9rem;
+
+            img {
+                width: 4rem;
+                height: 4rem;
+                object-fit: contain;
+                border-radius: 10px;
+            }
+
+            a {
+                text-decoration: none;
+                background-color: rgba(44, 104, 255, 0.455);
+                color: rgba(44, 104, 255);
+                padding: 0.25rem 0.5rem;
+                border-radius: 10px;
+            }
+
+            button {
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.1rem;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+                color: rgb(255, 44, 44);
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+
+            &:first-child {
+                border-left: none;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}
+
+.table-pagination {
+    @include flex;
+    padding: 2rem;
+
+    >button {
+        padding: 0.5rem 1rem;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: rgba(0, 115, 255);
+        color: white;
+
+        &:disabled {
+            background-color: rgba(0, 115, 255, 0.1);
+            cursor: not-allowed;
+        }
+    }
+}
+
+#hamburger {
+    display: grid;
+    place-items: center;
+    @include square(2.5rem);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    top: 0.7rem;
+    left: 0.9rem;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    z-index: 9;
+}
+
+#close-sidebar {
+    position: absolute;
+    top: .6rem;
+    margin-left: 9.5rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: rgba(32, 32, 30, 0.884);
+    cursor: pointer;
+}

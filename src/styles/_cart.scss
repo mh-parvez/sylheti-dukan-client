@@ -1,0 +1,194 @@
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 4rem;
+    height: calc(100vh - 3.5rem);
+    padding: 1.5rem;
+
+    main {
+        margin-top: 3rem;
+        width: 500px;
+        min-width: 300px;
+        height: 500px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media screen and (width <=770px) {
+            margin-top: 3rem;
+            height: auto;
+            max-height: 210px;
+        }
+
+        .no-item {
+            text-align: left;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: rgba(170, 171, 172, 0.685);
+            margin: 4rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            @media screen and (width <=770px) {
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    aside {
+        margin-top: 3rem;
+        padding: .3rem 2rem;
+        @include flex(column, center, stretch, 0.9rem);
+        width: 400px;
+        min-width: 200px;
+        height: 500px;
+        border-radius: .5rem;
+        box-shadow: -1px 1px 15px 1px rgba(194, 193, 193, 0.103) inset;
+
+        @media screen and (width <=770px) {
+            margin-top: 1rem;
+            height: auto;
+            justify-content: flex-start;
+            gap: .7rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            text-align: left;
+            text-transform: capitalize;
+
+            @media screen and (width <=770px) {
+                font-size: 1.3rem;
+            }
+        }
+
+        input {
+            padding: .7rem;
+            border: 1px solid rgba(0, 0, 0, 0.28);
+            outline: none;
+            margin-top: .5rem;
+            font-size: 0.9rem;
+
+            @media screen and (width <=770px) {
+                margin-top: .3rem;
+                padding: .6rem;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+
+        a {
+            background-color: $color3;
+            padding: .6rem;
+            text-decoration: none;
+            color: $color1;
+            @include flex;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            @media screen and (width <=770px) {
+                margin-top: .3rem;
+                margin-bottom: 1.5rem;
+                padding: .5rem;
+                font-size: .8rem;
+            }
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+
+        span {
+            @include flex(row, flex-start, center, 8px);
+
+            @media screen and (width <=770px) {
+                margin-top: .1rem;
+            }
+
+            code {
+                font-weight: 900;
+                align-self: center;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+
+.cart-items {
+    padding: .5rem;
+    @include flex (row, center, center, 2rem);
+    width: 100%;
+    height: 120px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: .1rem;
+    margin-top: 0.3rem;
+
+    img {
+        @include square(5rem);
+        object-fit: contain;
+    }
+
+    article {
+        @include flex(column, center, flex-start, 0.25rem);
+        font-size: 0.93rem;
+        color: $color2;
+
+        &:hover {
+            color: #D21F3C;
+        }
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    div {
+        margin-left: auto;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        button {
+            border: none;
+            @include square(1.5rem);
+            border-radius: 1px;
+            @include flex;
+            cursor: pointer;
+            font-size: 1.2rem;
+
+            &:hover {
+                background-color: $color2;
+                color: $color1;
+            }
+        }
+    }
+
+    >.delete {
+        border: none;
+        background-color: transparent;
+        @include flex;
+        cursor: pointer;
+        font-size: 1rem;
+        order: -1;
+        align-self: flex-start;
+        color: rgb(136, 132, 132);
+
+        &:hover {
+            color: red;
+        }
+    }
+}

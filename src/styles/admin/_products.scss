@@ -1,0 +1,324 @@
+.dashboard-product-box {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.create-product-btn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  @include square(2.5rem);
+  @include flex(row, center, center, 0);
+  border-radius: 50%;
+  background-color: rgb(201, 9, 9);
+  color: white;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+
+.new-product-container {
+  @include flex(row, center, unset);
+  padding: 2rem;
+  overflow-y: auto;
+
+  >article {
+    height: 80vh;
+    padding: 1rem;
+    width: 90%;
+    margin: 2rem auto;
+    border-radius: 5px;
+    position: relative;
+
+    h2 {
+      font-weight: 300;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      div {
+        width: 400px;
+        min-width: 300px;
+
+        input,
+        textarea {
+          width: 100%;
+          padding: .7rem;
+          font-size: 0.9rem;
+          outline: none;
+          border: 1px solid rgba(53, 53, 53, 0.205);
+          border-radius: .2rem;
+          margin-top: .2rem;
+        }
+
+        textarea {
+          height: 155px;
+          font-size: 0.9rem;
+        }
+
+        img {
+          width: 100%;
+          height: 100px;
+          margin-top: .2rem;
+          border-radius: .2rem;
+          padding: .2rem;
+          object-fit: contain;
+          border: 1px solid rgba(53, 53, 53, 0.205);
+        }
+
+        button {
+          width: 100%;
+          font-size: 0.9rem;
+          padding: .7rem .9rem;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          border-radius: .2rem;
+          background-color: rgb(90, 142, 255);
+          color: #222121;
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+
+          &:hover {
+            background-color: rgba(90, 142, 255, 0.863);
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.product-management {
+  padding: 1rem;
+  overflow-y: auto;
+
+  >section {
+    min-width: 300px;
+    height: 360px;
+    overflow-y: auto;
+    padding: 1rem;
+    margin: 2rem auto;
+    border: 1px solid rgba(206, 207, 207, 0.644);
+
+    .content-area {
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p,
+        b,
+        span {
+          margin-top: .3rem;
+        }
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .details-p {
+      font-size: .9rem;
+      margin-top: .3rem;
+    }
+  }
+
+  >article {
+    height: 85vh;
+    padding: 1rem;
+    width: 90%;
+    margin: 2rem auto;
+    border-radius: 5px;
+    position: relative;
+
+    h2 {
+      font-weight: 300;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      div {
+        width: 400px;
+        min-width: 300px;
+
+        input,
+        textarea {
+          width: 100%;
+          padding: .7rem;
+          font-size: 0.9rem;
+          outline: none;
+          border: 1px solid rgba(53, 53, 53, 0.205);
+          border-radius: .2rem;
+          margin-top: .2rem;
+        }
+
+        textarea {
+          height: 155px;
+          font-size: 0.9rem;
+        }
+
+        img {
+          width: 100%;
+          height: 100px;
+          margin-top: .2rem;
+          border-radius: .2rem;
+          padding: .2rem;
+          object-fit: contain;
+          border: 1px solid rgba(53, 53, 53, 0.205);
+        }
+
+        button {
+          width: 100%;
+          font-size: 0.9rem;
+          padding: .7rem .9rem;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          border-radius: .2rem;
+          background-color: rgb(90, 142, 255);
+          color: #222121;
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+
+          &:hover {
+            background-color: rgba(90, 142, 255, 0.863);
+          }
+        }
+
+        .delete-btn {
+          background-color: rgb(240, 11, 11);
+          margin-bottom: 0;
+
+          &:hover {
+            background-color: rgba(240, 11, 11, 0.747);
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+.transection-management-page {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2rem;
+
+
+  h2 {
+    font-weight: 300;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 1rem;
+
+    @media screen and (width <=650px) {
+      width: 100%;
+    }
+  }
+}
+
+.shipping-info-card {
+  width: 70%;
+
+  h1 {
+    font-weight: 300;
+    margin-top: 2.5rem;
+    margin-bottom: .5rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+    border-bottom: 1px solid gainsboro;
+    margin-top: .9rem;
+    margin-bottom: .5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .btn-container {
+    display: flex;
+    margin-top: 1rem;
+
+    button {
+      margin-right: .5rem;
+      outline: none;
+      border: none;
+      padding: .5rem 2rem;
+      font-size: 0.9rem;
+      border-radius: 2px;
+      background-color: rgb(54, 90, 253);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .product-delete-btn {
+      background-color: red;
+    }
+  }
+}
+
+.transaction-product-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid gainsboro;
+  padding: .5rem;
+
+  img {
+    width: 100px;
+    margin-right: 1rem;
+  }
+
+  span {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .purple {
+    color: purple;
+  }
+
+  a {
+    font-size: 0.9rem;
+  }
+}
