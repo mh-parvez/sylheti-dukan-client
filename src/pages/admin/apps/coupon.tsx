@@ -50,7 +50,6 @@ const Coupon = () => {
     <div className="admin-container">
       <AdminSidebar />
       <main className="dashboard-app-container">
-        <h1>Coupon</h1>
         <section>
           <form className="coupon-form" onSubmit={submitHandler}>
             <input

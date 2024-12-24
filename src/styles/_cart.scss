@@ -10,7 +10,7 @@
     main {
         margin-top: 3rem;
         width: 500px;
-        min-width: 300px;
+        min-width: 350px;
         height: 500px;
         overflow-y: auto;
 
@@ -28,7 +28,7 @@
             text-align: left;
             font-size: 3.5rem;
             font-weight: 300;
-            color: rgba(170, 171, 172, 0.685);
+            color: rgba(170, 171, 172, 0.301);
             margin: 4rem 1rem;
             display: flex;
             align-items: center;
@@ -36,6 +36,10 @@
 
             @media screen and (width <=770px) {
                 font-size: 2.5rem;
+            }
+            @media screen and (width <=570px) {
+                font-size: 1.9rem;
+                text-align: center;
             }
         }
     }
@@ -47,13 +51,15 @@
         width: 400px;
         min-width: 200px;
         height: 500px;
-        border-radius: .5rem;
-        box-shadow: -1px 1px 15px 1px rgba(194, 193, 193, 0.103) inset;
+        background-color:rgba(214, 214, 214, 0.267) ;
+        color: black;
 
         @media screen and (width <=770px) {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
             height: auto;
             justify-content: flex-start;
+            justify-content: center;
             gap: .7rem;
         }
 
@@ -66,7 +72,8 @@
             text-transform: capitalize;
 
             @media screen and (width <=770px) {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+                font-weight:500 ;
             }
         }
 
@@ -84,7 +91,7 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: capitalize;
             font-weight: 400;
         }

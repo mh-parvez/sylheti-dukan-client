@@ -30,6 +30,10 @@
         padding: 2rem 3rem;
         margin-top: 2rem;
 
+        @media screen and (width <=650px) {
+            padding: 2rem 1.5rem;
+        }
+
         .text-contianer {
 
             width: 45%;
@@ -165,7 +169,7 @@
             align-items: center;
 
             .headline {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
                 text-transform: capitalize;
                 font-weight: 500;
             }
@@ -173,6 +177,7 @@
             .link a {
                 color: #D21F3C;
                 transition: all .4s;
+                font-size: 0.9rem;
 
                 &:hover {
                     text-decoration: underline;

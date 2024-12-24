@@ -38,7 +38,6 @@ const Stopwatch = () => {
     <div className="admin-container">
       <AdminSidebar />
       <main className="dashboard-app-container">
-        <h1>Stopwatch</h1>
         <section>
           <div className="stopwatch">
             <h2>{formatTime(time)}</h2>

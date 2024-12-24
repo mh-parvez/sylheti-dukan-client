@@ -1,6 +1,9 @@
 .dashboard-app-container {
   background-color: white;
-  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   > section {
     @include flex(column, center, center, 2rem);
@@ -33,12 +36,21 @@
     }
 
     .tosscoin {
-      margin: 2rem;
-      @include square(19rem);
+      margin: 2rem auto;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      height: 300px;
+      width: 300px;
+
       position: relative;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: all 0.5s;
+
+
       > div {
         border-radius: 50%;
         @include square(100%);

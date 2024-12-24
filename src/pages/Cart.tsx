@@ -114,7 +114,7 @@ const Cart = () => {
 							/>
 						))
 					) : (
-						<p className='no-item'>No Items!</p>
+						<p className='no-item'>Add Something!</p>
 					)}
 				</main>
 
