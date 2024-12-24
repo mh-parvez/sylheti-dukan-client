@@ -1,9 +1,9 @@
 
 const NotFoundPage = () => {
 	return (
-		<div>
+		<div style = {{ marginTop: "45vh" }}  >
 			<h1 style={{textAlign:"center"}}> 404 - Page Not Found</h1>
-			<a href='/'> Go Back to Home </a>
+			<div style={{ textAlign: "center", color: 'blue' }}><a href='/' style={{color: 'blue' }}> Go Back to Home </a></div>
 		</div>
 	);
 };

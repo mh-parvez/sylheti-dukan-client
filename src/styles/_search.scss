@@ -160,7 +160,7 @@
             @include flex(row, flex-start, flex-start);
             flex-wrap: wrap;
 
-            @media screen and (width <=600px) {
+            @media screen and (width <=400px) {
                 justify-content: center;
                 align-items: center;
                 padding-left: 0;
