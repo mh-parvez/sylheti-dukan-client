@@ -1,4 +1,4 @@
- import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { onAuthStateChanged } from "firebase/auth";
@@ -61,6 +61,7 @@ const App = () => {
 			if (user) {
 				const data = await getUser(user.uid);
 				dispatch(userExist(data.user));
+				return <Navigate to={"/"} />
 				// console.log("Logged In");
 			} else {
 				dispatch(userNotExist());
